@@ -1,4 +1,5 @@
 import { FC, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import { BiDrink } from "react-icons/bi";
 import { MdOutlineLightMode, MdOutlineNightlight } from "react-icons/md";
@@ -9,6 +10,16 @@ import "./header-navigation.component.css";
 
 export const HeaderNavigation: FC = () => {
   const [isDarkMode, setDarkMode] = useState<boolean>(true);
+
+  const { i18n } = useTranslation();
+
+  const [language, setLanguage] = useState<string>(i18n.language);
+
+  const updateUserLanguage = (language: string) => {
+    i18n.changeLanguage(language);
+    setLanguage(language);
+    console.log(language);
+  };
 
   const changeDisplayColorMode = () => {
     setDarkMode((prev) => !prev);
@@ -40,7 +51,11 @@ export const HeaderNavigation: FC = () => {
                 <MdOutlineNightlight className="headerNavigation__navigation__settings__icon" />
               )}
             </button>
-            <button>ENG</button>
+            {language === "en" ? (
+              <button onClick={() => updateUserLanguage("pl")}>PL</button>
+            ) : (
+              <button onClick={() => updateUserLanguage("en")}>ENG</button>
+            )}
           </div>
           <button className="headerNavigation__navigation__button">
             Connect MetaMask
