@@ -1,0 +1,87 @@
+.headerNavigation {
+  height: 80px;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(
+      rgb(0, 0, 0) 4px,
+      rgba(0, 0, 0, 0.745) 32px,
+      rgba(0, 0, 0, 0) 80px
+    )
+    no-repeat;
+}
+
+.headerNavigation__header {
+  width: 100%;
+  margin: 0px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headerNavigation__logo {
+  width: fit-content;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.headerNavigation__logo__icon {
+  width: auto;
+  height: 40px;
+  color: #d84594;
+}
+
+/* Menu navigation */
+.headerNavigation__navigation {
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+/* Nav Links */
+.headerNavigation__navigation__links {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+  margin: 0px 16px;
+}
+
+/* Nav setting buttons */
+.headerNavigation__navigation__settings {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 10px;
+  border-left: solid 2px #fff;
+  border-right: solid 2px #fff;
+  gap: 5px;
+}
+
+.headerNavigation__navigation__settings button {
+  color: #ffff;
+  font-size: 16px;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+}
+
+.headerNavigation__navigation__settings__icon {
+  font-size: 24px;
+}
+
+/* Nav wallet connect button*/
+.headerNavigation__navigation__button {
+  color: #ffff;
+  font-size: 16px;
+  letter-spacing: 0.03em;
+  border-radius: 8px;
+  padding: 5px 15px;
+  margin-left: 24px;
+  outline: none;
+  cursor: pointer;
+  background-color: #d84594;
+}
