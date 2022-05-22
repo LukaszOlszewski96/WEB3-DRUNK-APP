@@ -27,7 +27,10 @@ export const Home: FC = () => {
             </Link>
           </div>
         </div>
-        <div className="home__mainSection__image">Zdjęcie</div>
+        <div className="home__mainSection__image">
+          <h1>open</h1>
+          <img src="./neon.png" />
+        </div>
       </div>
     </div>
   );

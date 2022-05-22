@@ -1,6 +1,6 @@
 import { FC, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Home } from "../pages/intex";
+import { Coctail, Home } from "../pages";
 
 export const BaseRoute: FC = () => {
   return (
@@ -8,6 +8,7 @@ export const BaseRoute: FC = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/coctail" element={<Coctail />} />
         </Routes>
       </BrowserRouter>
     </Suspense>

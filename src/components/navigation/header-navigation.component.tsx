@@ -34,8 +34,11 @@ export const HeaderNavigation: FC = () => {
           </NavLink>
         </div>
         <div className="headerNavigation__navigation">
-          <NavLink className="headerNavigation__navigation__links" to="/">
-            Roadmap
+          <NavLink
+            className="headerNavigation__navigation__links"
+            to="/coctail"
+          >
+            Coctails
           </NavLink>
           <NavLink className="headerNavigation__navigation__links" to="/">
             Discord Bot
