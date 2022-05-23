@@ -20,12 +20,12 @@
   justify-content: center;
   top: 150px;
   position: relative;
+  gap: 50px;
 }
 
 /* Card with image */
 .coctailDetails__containe__image {
   height: 500px;
-  background-color: brown;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
@@ -45,3 +45,111 @@
 }
 
 /* Card with recipe */
+.coctailDetails__container__card {
+  width: 600px;
+  height: 500px;
+  max-height: 500px;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.coctailDetails__container__card h1 {
+  margin: 0;
+  font-size: 48px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #d84594;
+}
+
+.coctailDetails__container__card h3 {
+  margin: 0 0 20px 0;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #ffff;
+}
+
+/* Properties */
+.coctailDetails__container__card__properties {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 20px;
+}
+
+.coctailDetails__container__card__properties__box {
+  width: 200px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #d8459346;
+  border: solid 2px #d84594;
+  border-radius: 8px;
+}
+
+.coctailDetails__container__card__properties__box p {
+  margin: 0;
+}
+
+.coctailDetails__container__card__properties__box p:nth-child(1) {
+  color: #d84594;
+  font-size: 12px;
+}
+.coctailDetails__container__card__properties__box p:nth-child(2) {
+  color: #ffff;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+/* Preparation box */
+.coctailDetails__container__card__preparation {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+/* Preparation box rows */
+.coctailDetails__container__card__preparation__row {
+  width: fit-content;
+  height: fit-content;
+}
+.coctailDetails__container__card__preparation__rowTitle {
+  color: #d84594;
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.coctailDetails__container__card__preparation__rowText {
+  color: #ffff;
+  font-size: 16px;
+}
+
+/* Scroll in card */
+.coctailDetails__container__card::-webkit-scrollbar,
+textarea::-webkit-scrollbar {
+  width: 11px;
+  background: transparent;
+}
+
+.coctailDetails__container__card::-webkit-scrollbar-corner,
+textarea::-webkit-scrollbar-corner {
+  background: transparent;
+  border: none;
+}
+
+.coctailDetails__container__card::-webkit-scrollbar-thumb,
+textarea::-webkit-scrollbar-thumb {
+  background-color: #073a4d;
+  border-radius: 6px;
+  border: 2px solid #09163b;
+}
+
+.coctailDetails__container__card::-webkit-scrollbar-track,
+textarea::-webkit-scrollbar-track {
+  background: #09163b;
+}
