@@ -1,0 +1,20 @@
+.notFound {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.notFound h1 {
+  margin: 0;
+  position: relative;
+  top: 80px;
+  font-size: 142px;
+}
+
+.notFound img:nth-child(2) {
+  height: 500px;
+}

@@ -1,13 +1,14 @@
 import axios from "axios";
 import { ChangeEvent, FC, useState } from "react";
 import { BiDrink } from "react-icons/bi";
+import { PhotoGalleryCard } from "../../components/masonry";
 
 import { HeaderNavigation } from "../../components/navigation";
 
 import "./coctail.page.css";
 
 export const Coctail: FC = () => {
-  const [_coctails, _setCoctails] = useState<[]>([]);
+  const [coctails, setCoctails] = useState<[]>([]);
   const [coctailName, setCoctailsName] = useState<string>("");
 
   const handleCoctailName = (e: ChangeEvent<HTMLInputElement>) => {
@@ -19,6 +20,9 @@ export const Coctail: FC = () => {
       const response = await axios.get(
         `https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${coctailName}`
       );
+
+      setCoctails(response.data.drinks);
+
       console.log(response.data);
     } catch (error) {
       console.log(error);
@@ -46,6 +50,7 @@ export const Coctail: FC = () => {
           />
         </form>
       </div>
+      <PhotoGalleryCard coctails={coctails} />
     </div>
   );
 };

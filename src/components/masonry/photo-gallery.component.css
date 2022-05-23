@@ -1,0 +1,32 @@
+.photoGalleryCard {
+  padding: 0px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photoGalleryCard__box {
+  width: 100%;
+  max-width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: hidden;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* Cards */
+
+.photoGalleryCard__box__card {
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.photoGalleryCard__box__card img {
+  height: 300px;
+  border-radius: 8px;
+}
