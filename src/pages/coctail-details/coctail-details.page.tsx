@@ -39,7 +39,7 @@ export const CoctailDetails: FC = () => {
       )
       .map((key) => response.data.drinks[0][key].trim());
 
-    const measures = Object.keys(response.data)
+    const measures = Object.keys(response.data.drinks[0])
       .filter((key) => key.match(/measure/i))
       .filter(
         (key) =>

@@ -19,6 +19,7 @@ export const PhotoGalleryCard: FC<PhotoMasonryProps> = ({ ...props }) => {
             <Link to={`/coctail/details?id=${item.idDrink}`}>
               <div key={index} className="photoGalleryCard__box__card">
                 <img src={item.strDrinkThumb} alt={item.strDrink} />
+                <span>{item.strDrink}</span>
               </div>
             </Link>
           ))}
