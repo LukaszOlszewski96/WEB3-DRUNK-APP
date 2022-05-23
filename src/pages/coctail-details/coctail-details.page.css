@@ -127,6 +127,8 @@
 .coctailDetails__container__card__preparation__rowText {
   color: #ffff;
   font-size: 16px;
+  display: flex;
+  flex-direction: row;
 }
 
 /* Scroll in card */

@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { Link } from "react-router-dom";
 import { LoadingDataSpinner } from "../spinner";
 
 import "./photo-gallery.component.css";
@@ -15,9 +16,11 @@ export const PhotoGalleryCard: FC<PhotoMasonryProps> = ({ ...props }) => {
       ) : (
         <div {...props} className="photoGalleryCard__box">
           {props.coctails.map((item, index) => (
-            <div key={index} className="photoGalleryCard__box__card">
-              <img src={item.strDrinkThumb} alt={item.strDrink} />
-            </div>
+            <Link to={`/coctail/details?id=${item.idDrink}`}>
+              <div key={index} className="photoGalleryCard__box__card">
+                <img src={item.strDrinkThumb} alt={item.strDrink} />
+              </div>
+            </Link>
           ))}
         </div>
       )}
