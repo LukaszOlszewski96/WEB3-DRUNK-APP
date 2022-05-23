@@ -6,15 +6,17 @@
   align-items: center;
   justify-content: center;
   background-color: #fff;
+  overflow: hidden;
 }
 
 .notFound h1 {
   margin: 0;
-  position: relative;
+  position: absolute;
   top: 80px;
   font-size: 142px;
 }
 
 .notFound img:nth-child(2) {
-  height: 500px;
+  width: 500px;
+  position: absolute;
 }

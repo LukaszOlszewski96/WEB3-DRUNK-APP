@@ -23,7 +23,7 @@ export const Home: FC = () => {
               className="home__mainSection__description__buttons__link"
               to="/"
             >
-              {t("common.createCoctail")}
+              {t("common.createDrink")}
             </Link>
           </div>
         </div>

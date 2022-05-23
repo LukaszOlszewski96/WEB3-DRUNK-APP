@@ -10,7 +10,7 @@ interface PhotoMasonryProps {
   coctails: any[];
 }
 
-export const PhotoGalleryCard: FC<PhotoMasonryProps> = ({ ...props }) => {
+export const PhotoGalleryCard: FC<PhotoMasonryProps> = (props) => {
   const [scrollButton, setScrollButton] = useState<boolean>(false);
 
   const scrollToTop = () => {

@@ -1,5 +1,6 @@
 import axios from "axios";
 import { ChangeEvent, FC, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { BiDrink } from "react-icons/bi";
 import { PhotoGalleryCard } from "../../components/masonry";
 
@@ -8,6 +9,8 @@ import { HeaderNavigation } from "../../components/navigation";
 import "./coctail.page.css";
 
 export const Coctail: FC = () => {
+  const { t } = useTranslation();
+
   const [coctails, setCoctails] = useState<[]>([]);
   const [coctailName, setCoctailsName] = useState<string>("");
 
@@ -17,6 +20,8 @@ export const Coctail: FC = () => {
 
   const searchCoctailName = async () => {
     try {
+      if (coctailName.length === 0) return;
+
       if (coctailName.length > 1) {
         const response = await axios.get(
           `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${coctailName}`
@@ -44,7 +49,7 @@ export const Coctail: FC = () => {
     <div className="coctail">
       <HeaderNavigation />
       <div className="coctail__header">
-        <h1>Znajdź kolejny pomysł na dzisiejszego drinka</h1>
+        <h1>{t("common.coctailsText")}</h1>
         <form className="coctail__header__form">
           <button
             className="coctail__header__form__button"
@@ -59,7 +64,7 @@ export const Coctail: FC = () => {
             required
             type="text"
             className="coctail__header__form__search"
-            placeholder="Search your drink..."
+            placeholder={t("common.searchYourDrink")}
           />
         </form>
       </div>

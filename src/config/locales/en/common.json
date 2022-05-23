@@ -1,6 +1,16 @@
 {
-  "homeMainDescription1": "The moon is made of pancakes.",
-  "homeMainDescription2": "Trade, earn, and win crypto on the most popular decentralized platform in the galaxy.",
-  "connectWallet": "Connect Wallet",
-  "createCoctail": "Create Coctail"
+  "coctails": "Coctails",
+  "discordBot": "Discord Bot",
+  "createDrink": "Create Drink",
+  "homeMainDescription1": "Get a taste of alcohol in the metaverse world.",
+  "homeMainDescription2": "Create, trade and earn by selling your happiness prescriptions.",
+  "connectWallet": "Connect MetaMask",
+  "coctailsText": "Find another idea for today's drink",
+  "searchYourDrink": "Search your drink...",
+  "category": "Category",
+  "glassToUse": "Glass to use",
+  "type": "Type",
+  "ingredients": "Ingredients:",
+  "instruction": "Instruction:",
+  "popupInfo": "Sorry, we don't have the details of this product yet. But rest assured it will be here soon."
 }

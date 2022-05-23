@@ -6,8 +6,7 @@ export const NotFound: FC = () => {
   return (
     <div className="notFound">
       <h1>404</h1>
-
-      <img src="./drunk.png" />
+      <img src="./58RV.gif" />
     </div>
   );
 };

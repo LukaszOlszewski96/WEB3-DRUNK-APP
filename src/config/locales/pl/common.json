@@ -1,6 +1,16 @@
 {
-  "homeMainDescription1": "Księżyc jest zrobiony z naleśników.",
-  "homeMainDescription2": "Handluj, zarabiaj i wygrywaj kryptowaluty na najpopularniejszej zdecentralizowanej platformie w galaktyce.",
-  "connectWallet": "Połącz portfel",
-  "createCoctail": "Stwórz Coctail"
+  "coctails": "Koktajle",
+  "discordBot": "Discord Bot",
+  "createDrink": "Swtórz Napój",
+  "homeMainDescription1": "Poczuj smak alkoholu w świecie metaverse.",
+  "homeMainDescription2": "Twórz, handluj i zarabiaj sprzedając swoje recepty na szczęście.",
+  "connectWallet": "Połącz MetaMask",
+  "coctailsText": "Znajdź kolejny pomysł na dzisiejszego drinka",
+  "searchYourDrink": "Wyszukaj swój napój...",
+  "category": "Kategoria",
+  "glassToUse": "Szkło do użycia",
+  "type": "Typ",
+  "ingredients": "Składniki:",
+  "instruction": "Instrukcja:",
+  "popupInfo": "Przykro nam, nie mamy jeszcze szczegółów tego produktu. Ale spokojnie wkrótce będzie."
 }

@@ -12,6 +12,7 @@ export const HeaderNavigation: FC = () => {
   const [isDarkMode, setDarkMode] = useState<boolean>(true);
 
   const { i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const [language, setLanguage] = useState<string>(i18n.language);
 
@@ -38,13 +39,13 @@ export const HeaderNavigation: FC = () => {
             className="headerNavigation__navigation__links"
             to="/coctail"
           >
-            Coctails
+            {t("common.coctails")}
           </NavLink>
           <NavLink className="headerNavigation__navigation__links" to="/">
-            Discord Bot
+            {t("common.discordBot")}
           </NavLink>
           <NavLink className="headerNavigation__navigation__links" to="/">
-            Create Dring
+            {t("common.createDrink")}
           </NavLink>
           <div className="headerNavigation__navigation__settings">
             <button onClick={changeDisplayColorMode}>
@@ -61,7 +62,7 @@ export const HeaderNavigation: FC = () => {
             )}
           </div>
           <button className="headerNavigation__navigation__button">
-            Connect MetaMask
+            {t("common.connectWallet")}
           </button>
         </div>
       </div>
