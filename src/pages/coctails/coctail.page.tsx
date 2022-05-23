@@ -55,10 +55,11 @@ export const Coctail: FC = () => {
           </button>
           <input
             onChange={handleCoctailName}
+            onKeyDown={handleKeyDown}
+            required
             type="text"
             className="coctail__header__form__search"
             placeholder="Search your drink..."
-            onKeyDown={handleKeyDown}
           />
         </form>
       </div>
