@@ -1,11 +1,17 @@
 import axios from "axios";
-import { FC, useEffect, useState } from "react";
+import { FC, ReactElement, useEffect, useState } from "react";
 import { SiEthereum } from "react-icons/si";
 import { useSearchParams } from "react-router-dom";
+import { Popup } from "../../components/common/popups";
 
 import { HeaderNavigation } from "../../components/navigation";
 
 import "./coctail-details.page.css";
+
+export interface Ingredient {
+  name: string;
+  description: string;
+}
 
 export const CoctailDetails: FC = () => {
   const [coctail, _setCoctail] = useState<any>("d");
@@ -16,8 +22,53 @@ export const CoctailDetails: FC = () => {
   const [coctailIngredients, setCoctailIngredients] = useState<any[]>();
   const [coctailInstruction, setCoctailInstruction] = useState<string | null>();
   const [coctailImage, setCoctailImage] = useState<string>();
+  const [popup, setPopup] = useState<ReactElement | null>(null);
+  const [ingredientsDetails, setIngredientsDetails] = useState<Ingredient>();
+
   let [searchParams] = useSearchParams();
   let coctailID = searchParams.get("id");
+
+  const closePopup = () => {
+    setPopup(null);
+    setIngredientsDetails(undefined);
+  };
+
+  const getIngredientsDetail = async (name: string) => {
+    try {
+      const response = await axios.get(
+        `https://www.thecocktaildb.com/api/json/v1/1/search.php?i=${name}`
+      );
+      setIngredientsDetails({
+        ...ingredientsDetails,
+        name: response.data.ingredients[0].strIngredient,
+        description: response.data.ingredients[0].strDescription,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  console.log(ingredientsDetails);
+
+  const showProductPopup = (title: string) => {
+    getIngredientsDetail(title);
+  };
+
+  useEffect(() => {
+    if (ingredientsDetails) {
+      setPopup(
+        <Popup close={closePopup} title={ingredientsDetails.name}>
+          <div className="ingredientsDetails">
+            <p className="ingredientsDetails__description">
+              {!ingredientsDetails.description
+                ? "Przykro nam, nie mamy jeszcze szczegółów tego produktu. Ale spokojnie wkrótce będzie."
+                : ingredientsDetails.description}
+            </p>
+          </div>
+        </Popup>
+      );
+    }
+  }, [ingredientsDetails]);
 
   const getCoctailDetails = async () => {
     const response = await axios.get(
@@ -67,7 +118,7 @@ export const CoctailDetails: FC = () => {
               <div className="coctailDetails__containe__header">
                 <SiEthereum />
               </div>
-              <img src={coctailImage} />
+              <img src={coctailImage} alt="coctail" />
             </div>
             <div className="coctailDetails__container__card">
               <h1>{coctailName}</h1>
@@ -98,7 +149,7 @@ export const CoctailDetails: FC = () => {
                         key={index}
                         className="coctailDetails__container__card__preparation__rowText"
                       >
-                        <span>
+                        <span onClick={() => showProductPopup(item.drink)}>
                           {index + 1}. {item.drink}
                         </span>
                         <span>{item.measure}</span>
@@ -119,6 +170,7 @@ export const CoctailDetails: FC = () => {
           </div>
         )}
       </div>
+      {popup ? popup : null}
     </div>
   );
 };

@@ -132,6 +132,10 @@
   gap: 20px;
 }
 
+.coctailDetails__container__card__preparation__rowText span:nth-child(1) {
+  cursor: pointer;
+}
+
 /* Scroll in card */
 .coctailDetails__container__card::-webkit-scrollbar,
 textarea::-webkit-scrollbar {
@@ -155,4 +159,19 @@ textarea::-webkit-scrollbar-thumb {
 .coctailDetails__container__card::-webkit-scrollbar-track,
 textarea::-webkit-scrollbar-track {
   background: #09163b;
+}
+
+/* Popups description style */
+.ingredientsDetails {
+  padding: 20px;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: auto;
+}
+
+.ingredientsDetails__description {
+  font-size: 18px;
+  font-weight: 400;
+  color: #000;
 }

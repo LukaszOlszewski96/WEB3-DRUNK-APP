@@ -17,15 +17,26 @@ export const Coctail: FC = () => {
 
   const searchCoctailName = async () => {
     try {
-      const response = await axios.get(
-        `https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${coctailName}`
-      );
-
-      setCoctails(response.data.drinks);
-
-      console.log(response.data);
+      if (coctailName.length > 1) {
+        const response = await axios.get(
+          `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${coctailName}`
+        );
+        setCoctails(response.data.drinks);
+      } else {
+        const response = await axios.get(
+          `https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${coctailName}`
+        );
+        setCoctails(response.data.drinks);
+      }
     } catch (error) {
       console.log(error);
+    }
+  };
+
+  const handleKeyDown = (e: any) => {
+    if (e.key === "Enter") {
+      searchCoctailName();
+      e.preventDefault();
     }
   };
 
@@ -47,6 +58,7 @@ export const Coctail: FC = () => {
             type="text"
             className="coctail__header__form__search"
             placeholder="Search your drink..."
+            onKeyDown={handleKeyDown}
           />
         </form>
       </div>
