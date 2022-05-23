@@ -44,3 +44,23 @@
   align-items: center;
   justify-content: center;
 }
+
+/* Scroll to top button */
+.photoGalleryCard__scrollToTop {
+  position: fixed;
+  bottom: 50px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  z-index: 100;
+  background-color: #d84594;
+  color: #ffff;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
