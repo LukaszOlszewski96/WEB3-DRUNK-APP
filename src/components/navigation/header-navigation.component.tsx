@@ -5,12 +5,18 @@ import { BiDrink } from "react-icons/bi";
 import { MdOutlineLightMode, MdOutlineNightlight } from "react-icons/md";
 
 import { NavLink } from "react-router-dom";
+import { MetaMaskContext } from "../../context/metamask.context";
 import { ThemeContext } from "../../context/theme.context";
+import { IMetaMaskContext } from "../../types/metamask.types";
+import { ShortenAddress } from "../../utils/shorten.Address";
 
 import "./header-navigation.component.css";
 
 export const HeaderNavigation: FC = () => {
   const { mode, toggle } = useContext(ThemeContext);
+  const { contract, connectMetaMask } = useContext(
+    MetaMaskContext
+  ) as IMetaMaskContext;
 
   const { i18n } = useTranslation();
   const { t } = useTranslation();
@@ -41,7 +47,7 @@ export const HeaderNavigation: FC = () => {
           <NavLink className="headerNavigation__navigation__links" to="/">
             {t("common.discordBot")}
           </NavLink>
-          <NavLink className="headerNavigation__navigation__links" to="/">
+          <NavLink className="headerNavigation__navigation__links" to="/create">
             {t("common.createDrink")}
           </NavLink>
           <div className="headerNavigation__navigation__settings">
@@ -58,9 +64,19 @@ export const HeaderNavigation: FC = () => {
               <button onClick={() => updateUserLanguage("en")}>ENG</button>
             )}
           </div>
-          <button className="headerNavigation__navigation__button">
-            {t("common.connectWallet")}
-          </button>
+          {contract ? (
+            <button className="headerNavigation__navigation__button">
+              <p>Logout:</p>
+              <p>{ShortenAddress(contract)}</p>
+            </button>
+          ) : (
+            <button
+              className="headerNavigation__navigation__button"
+              onClick={connectMetaMask}
+            >
+              {t("common.connectWallet")}
+            </button>
+          )}
         </div>
       </div>
     </div>
