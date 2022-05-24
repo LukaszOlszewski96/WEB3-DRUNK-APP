@@ -24,16 +24,12 @@ textarea::-webkit-scrollbar-corner {
 
 body::-webkit-scrollbar-thumb,
 textarea::-webkit-scrollbar-thumb {
-  background-color: #073a4d;
+  /* background-color: #073a4d; */
   border-radius: 6px;
-  border: 2px solid #09163b;
+  /* border: 2px solid #09163b; */
 }
 
 body::-webkit-scrollbar-track,
 textarea::-webkit-scrollbar-track {
-  background: #09163b;
-}
-
-[data-theme="light"] {
-  --background: #ffff;
+  /* background: #09163b; */
 }

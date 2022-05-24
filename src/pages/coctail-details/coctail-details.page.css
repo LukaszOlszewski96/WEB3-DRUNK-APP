@@ -28,7 +28,7 @@
   height: 500px;
   overflow: hidden;
   border-radius: 10px;
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.3);
 }
 
 .coctailDetails__containe__header {
@@ -58,7 +58,7 @@
   font-size: 48px;
   font-weight: 600;
   letter-spacing: 0.03em;
-  color: #d84594;
+  /* color: #d84594; */
 }
 
 .coctailDetails__container__card h3 {
@@ -66,7 +66,7 @@
   font-size: 24px;
   font-weight: 600;
   letter-spacing: 0.03em;
-  color: #ffff;
+  /* color: #ffff; */
 }
 
 /* Properties */
@@ -94,8 +94,8 @@
 }
 
 .coctailDetails__container__card__properties__box p:nth-child(1) {
-  color: #d84594;
-  font-size: 12px;
+  /* color: #d84594; */
+  font-size: 14px;
 }
 .coctailDetails__container__card__properties__box p:nth-child(2) {
   color: #ffff;
@@ -118,14 +118,14 @@
   height: fit-content;
 }
 .coctailDetails__container__card__preparation__rowTitle {
-  color: #d84594;
+  /* color: #d84594; */
   margin-bottom: 10px;
   font-weight: 600;
   font-size: 18px;
 }
 
 .coctailDetails__container__card__preparation__rowText {
-  color: #ffff;
+  /* color: #ffff; */
   font-size: 16px;
   display: flex;
   flex-direction: row;
@@ -149,16 +149,14 @@ textarea::-webkit-scrollbar-corner {
   border: none;
 }
 
-.coctailDetails__container__card::-webkit-scrollbar-thumb,
-textarea::-webkit-scrollbar-thumb {
-  background-color: #073a4d;
+.coctailDetails__container__card::-webkit-scrollbar-thumb {
+  /* background-color: #073a4d; */
   border-radius: 6px;
-  border: 2px solid #09163b;
+  /* border: 2px solid #09163b; */
 }
 
-.coctailDetails__container__card::-webkit-scrollbar-track,
-textarea::-webkit-scrollbar-track {
-  background: #09163b;
+.coctailDetails__container__card::-webkit-scrollbar-track {
+  /* background: #09163b; */
 }
 
 /* Popups description style */

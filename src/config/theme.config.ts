@@ -1,0 +1,15 @@
+export enum COLOR {
+  BLACK = "#000",
+  PINK = "#d84594",
+  WHITE = "#ffff",
+  DARK_BACKGROUND = "linear-gradient(-13deg, #4e0138 -10%, #00031b 50%)",
+  DARK_HEADER = "linear-gradient(rgb(0, 0, 0) 4px, rgba(0, 0, 0, 0.745) 32px, rgba(0, 0, 0, 0) 80px)",
+  VIOLET = "#9404FC",
+  BACKGROUND_INPUT_LIGHT = "rgba(80, 0, 228, 0.4)",
+  BACKGROUND_INPUT_DARK = "rgba(244, 238, 255, 0.134)",
+  SCROLL_THUMB_BG = "#073a4d",
+  SCROLL_THUMB_BORDER = "#09163b",
+  SCROLL_TRACK_BG = "#09163b",
+  CATEGORY_COCTAIL_BOX_BG_D = "#d8459346",
+  CATEGORY_COCTAIL_BOX_BG_L = "#9504fc46",
+}

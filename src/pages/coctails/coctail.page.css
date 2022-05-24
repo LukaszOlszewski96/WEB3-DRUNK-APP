@@ -22,7 +22,7 @@
   font-size: 48px;
   font-weight: 600;
   line-height: 1.1;
-  color: rgb(244, 238, 255);
+  /* color: rgb(244, 238, 255); */
 }
 
 /* Search form */
@@ -39,10 +39,10 @@
 .coctail__header__form__button {
   margin-right: 10px;
   padding: 10px;
-  color: #d84594;
+  /* color: #d84594; */
   font-size: 28px;
   border-radius: 8px;
-  border: 2px solid #d84594;
+  /* border: 2px solid #d84594; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -59,6 +59,6 @@
   border-radius: 8px;
   outline: none;
   border: none;
-  background-color: rgba(244, 238, 255, 0.134);
-  color: rgb(244, 238, 255);
+  /* background-color: rgba(244, 238, 255, 0.134); */
+  /* color: rgb(244, 238, 255); */
 }

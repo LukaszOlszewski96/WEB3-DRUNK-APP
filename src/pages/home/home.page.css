@@ -31,7 +31,7 @@
   font-size: 54px;
   font-weight: 600;
   line-height: 1.1;
-  color: rgb(244, 238, 255);
+  /* color: rgb(244, 238, 255); */
 }
 
 .home__mainSection__description h2:nth-child(2) {
@@ -40,7 +40,7 @@
   font-size: 18px;
   font-weight: 600;
   line-height: 1.1;
-  color: rgb(244, 238, 255);
+  /* color: rgb(244, 238, 255); */
 }
 
 /* Styles for buttons in main section => description */
@@ -64,14 +64,13 @@
   outline: none;
   margin-right: 20px;
   color: white;
-  background-color: #d84594;
-  box-shadow: rgb(14 14 44 / 40%) 0px -1px 0px 0px inset;
+  /* background-color: #d84594; */
 }
 
 /* Link */
 .home__mainSection__description__buttons__link {
   padding: 0px 24px;
-  border: 2px solid #d84594;
+  /* border: 2px solid #d84594; */
   border-radius: 8px;
   cursor: pointer;
   display: flex;
@@ -81,7 +80,7 @@
   align-items: center;
   justify-content: center;
   letter-spacing: 0.03em;
-  color: #d84594;
+  /* color: #d84594; */
 }
 
 /* NEON IMAGE */

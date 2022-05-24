@@ -23,12 +23,6 @@ export const HeaderNavigation: FC = () => {
     console.log(language);
   };
 
-  console.log(mode);
-
-  // const changeDisplayColorMode = () => {
-  //   setDarkMode((prev) => !prev);
-  // };
-
   return (
     <div className="headerNavigation">
       <div className="headerNavigation__header">
