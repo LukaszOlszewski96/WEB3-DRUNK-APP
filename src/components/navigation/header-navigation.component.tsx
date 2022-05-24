@@ -1,15 +1,16 @@
-import { FC, useState } from "react";
+import { FC, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import { BiDrink } from "react-icons/bi";
 import { MdOutlineLightMode, MdOutlineNightlight } from "react-icons/md";
 
 import { NavLink } from "react-router-dom";
+import { ThemeContext } from "../../context/theme.context";
 
 import "./header-navigation.component.css";
 
 export const HeaderNavigation: FC = () => {
-  const [isDarkMode, setDarkMode] = useState<boolean>(true);
+  const { mode, toggle } = useContext(ThemeContext);
 
   const { i18n } = useTranslation();
   const { t } = useTranslation();
@@ -22,9 +23,11 @@ export const HeaderNavigation: FC = () => {
     console.log(language);
   };
 
-  const changeDisplayColorMode = () => {
-    setDarkMode((prev) => !prev);
-  };
+  console.log(mode);
+
+  // const changeDisplayColorMode = () => {
+  //   setDarkMode((prev) => !prev);
+  // };
 
   return (
     <div className="headerNavigation">
@@ -48,8 +51,8 @@ export const HeaderNavigation: FC = () => {
             {t("common.createDrink")}
           </NavLink>
           <div className="headerNavigation__navigation__settings">
-            <button onClick={changeDisplayColorMode}>
-              {isDarkMode ? (
+            <button onClick={toggle}>
+              {mode === "dark" ? (
                 <MdOutlineLightMode className="headerNavigation__navigation__settings__icon" />
               ) : (
                 <MdOutlineNightlight className="headerNavigation__navigation__settings__icon" />

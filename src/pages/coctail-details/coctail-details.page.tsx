@@ -24,8 +24,6 @@ export const CoctailDetails: FC = () => {
   const [searchParams] = useSearchParams();
   const coctailID = searchParams.get("id");
 
-  console.log(ingredientsDetails);
-
   const closePopup = () => {
     setPopup(null);
     setIngredientsDetails(undefined);
@@ -99,8 +97,6 @@ export const CoctailDetails: FC = () => {
       const ingredients = drinks.map((_item, index) => {
         return { drink: drinks[index], measure: measures[index] };
       });
-
-      console.log(ingredients);
 
       setCoctailIngredients(ingredients);
     } catch (error) {

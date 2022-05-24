@@ -33,3 +33,7 @@ body::-webkit-scrollbar-track,
 textarea::-webkit-scrollbar-track {
   background: #09163b;
 }
+
+[data-theme="light"] {
+  --background: #ffff;
+}
