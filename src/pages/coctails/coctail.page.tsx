@@ -5,13 +5,14 @@ import { BiDrink } from "react-icons/bi";
 import { PhotoGalleryCard } from "../../components/masonry";
 
 import { HeaderNavigation } from "../../components/navigation";
+// import { ICoctail } from "../../services/coctail.service";
 
 import "./coctail.page.css";
 
 export const Coctail: FC = () => {
   const { t } = useTranslation();
 
-  const [coctails, setCoctails] = useState<[]>([]);
+  const [coctails, setCoctails] = useState<any[]>([]);
   const [coctailName, setCoctailsName] = useState<string>("");
 
   const handleCoctailName = (e: ChangeEvent<HTMLInputElement>) => {
@@ -23,6 +24,7 @@ export const Coctail: FC = () => {
       if (coctailName.length === 0) return;
 
       if (coctailName.length > 1) {
+        // const response = await CoctailData.getCoctailByName(coctailName);
         const response = await axios.get(
           `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${coctailName}`
         );

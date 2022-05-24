@@ -3,8 +3,8 @@ import { http } from "../config/axios";
 export interface Ingredient {
   ingredients: [
     {
-      strIngredient: string | undefined;
-      strDescription: string | undefined;
+      strIngredient: string;
+      strDescription: string;
     }
   ];
 }

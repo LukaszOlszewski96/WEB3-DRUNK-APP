@@ -5,7 +5,7 @@ import { useSearchParams } from "react-router-dom";
 import { Popup } from "../../components/common/popups";
 
 import { HeaderNavigation } from "../../components/navigation";
-import { CoctaiData, Coctail } from "../../services/coctail.service";
+import { Coctail, CoctailData } from "../../services/coctail.service";
 import {
   Ingredient,
   IngredientsData,
@@ -16,12 +16,10 @@ import "./coctail-details.page.css";
 export const CoctailDetails: FC = () => {
   const { t } = useTranslation();
 
-  const [coctail, setCoctail] = useState<Coctail | undefined>();
+  const [coctail, setCoctail] = useState<Coctail>();
   const [coctailIngredients, setCoctailIngredients] = useState<any[]>();
   const [popup, setPopup] = useState<ReactElement | null>(null);
-  const [ingredientsDetails, setIngredientsDetails] = useState<
-    Ingredient | undefined
-  >();
+  const [ingredientsDetails, setIngredientsDetails] = useState<Ingredient>();
 
   const [searchParams] = useSearchParams();
   const coctailID = searchParams.get("id");
@@ -74,33 +72,40 @@ export const CoctailDetails: FC = () => {
   }, [ingredientsDetails]);
 
   const getCoctailDetails = async () => {
-    const response = await CoctaiData.getCoctailDetails(coctailID);
-    setCoctail({
-      drinks: [
-        {
-          strDrink: response.data.drinks[0].strDrink,
-          strCategory: response.data.drinks[0].strCategory,
-          strGlass: response.data.drinks[0].strGlass,
-          strAlcoholic: response.data.drinks[0].strAlcoholic,
-          strInstructions: response.data.drinks[0].strInstructions,
-          strDrinkThumb: response.data.drinks[0].strDrinkThumb,
-        },
-      ],
-    });
+    try {
+      const response = await CoctailData.getCoctailDetails(coctailID);
+      setCoctail({
+        drinks: [
+          {
+            strDrink: response.data.drinks[0].strDrink,
+            strCategory: response.data.drinks[0].strCategory,
+            strGlass: response.data.drinks[0].strGlass,
+            strAlcoholic: response.data.drinks[0].strAlcoholic,
+            strInstructions: response.data.drinks[0].strInstructions,
+            strDrinkThumb: response.data.drinks[0].strDrinkThumb,
+          },
+        ],
+      });
 
-    const drinks = Object.entries(response.data.drinks[0]).filter(
-      ([key, value]) => key.startsWith("strIngredient") && value && value.trim()
-    );
-    const measures = Object.entries(response.data.drinks[0]).filter(
-      ([key, value]) => key.startsWith("strMeasure") && value && value.trim()
-    );
+      const drinks = Object.entries(response.data.drinks[0]).filter(
+        ([key, value]) =>
+          key.startsWith("strIngredient") && value && value.trim()
+      );
 
-    console.log(drinks[0][1]);
+      const measures = Object.entries(response.data.drinks[0]).filter(
+        ([key, value]) => key.startsWith("strMeasure") && value && value.trim()
+      );
 
-    const ingredients = drinks.map((_item, index) => {
-      return { drink: drinks[index], measure: measures[index] };
-    });
-    setCoctailIngredients(ingredients);
+      const ingredients = drinks.map((_item, index) => {
+        return { drink: drinks[index], measure: measures[index] };
+      });
+
+      console.log(ingredients);
+
+      setCoctailIngredients(ingredients);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -151,7 +156,7 @@ export const CoctailDetails: FC = () => {
                         <span onClick={() => showProductPopup(item.drink[1])}>
                           {index + 1}. {item.drink[1]}
                         </span>
-                        <span>{item.measure[1]}</span>
+                        <span>{!item.measure ? "" : item.measure[1]}</span>
                       </li>
                     ))}
                   </ul>

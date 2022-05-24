@@ -32,7 +32,7 @@ export const PhotoGalleryCard: FC<PhotoMasonryProps> = (props) => {
 
   return (
     <div className="photoGalleryCard">
-      {props.coctails === null ? (
+      {!props.coctails ? (
         <LoadingDataSpinner />
       ) : (
         <div {...props} className="photoGalleryCard__box">
