@@ -25,6 +25,11 @@ export const MetaMaskProvider: FC<MetaMaskProviderProps> = ({ children }) => {
     }
   };
 
+  const disconnectMetaMask = async () => {
+    setContract("");
+    localStorage.removeItem("shouldConnectMetamask");
+  };
+
   useEffect(() => {
     if (localStorage.getItem("shouldConnectMetamask") === "true") {
       connectMetaMask();
@@ -32,7 +37,9 @@ export const MetaMaskProvider: FC<MetaMaskProviderProps> = ({ children }) => {
   }, []);
 
   return (
-    <MetaMaskContext.Provider value={{ contract, connectMetaMask }}>
+    <MetaMaskContext.Provider
+      value={{ contract, connectMetaMask, disconnectMetaMask }}
+    >
       {children}
     </MetaMaskContext.Provider>
   );

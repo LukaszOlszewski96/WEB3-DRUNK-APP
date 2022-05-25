@@ -22,4 +22,5 @@ export type MetaMaskState =
 
 export type IMetaMaskContext = MetaMaskState & {
   connectMetaMask: () => void;
+  disconnectMetaMask: () => void;
 };

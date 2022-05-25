@@ -14,7 +14,7 @@ import "./header-navigation.component.css";
 
 export const HeaderNavigation: FC = () => {
   const { mode, toggle } = useContext(ThemeContext);
-  const { contract, connectMetaMask } = useContext(
+  const { contract, connectMetaMask, disconnectMetaMask } = useContext(
     MetaMaskContext
   ) as IMetaMaskContext;
 
@@ -71,7 +71,10 @@ export const HeaderNavigation: FC = () => {
             )}
           </div>
           {contract ? (
-            <button className="headerNavigation__navigation__button">
+            <button
+              className="headerNavigation__navigation__button"
+              onClick={disconnectMetaMask}
+            >
               <p>Logout:</p>
               <p>{ShortenAddress(contract)}</p>
             </button>
