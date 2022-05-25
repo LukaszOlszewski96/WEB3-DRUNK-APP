@@ -44,11 +44,17 @@ export const HeaderNavigation: FC = () => {
           >
             {t("common.coctails")}
           </NavLink>
-          <NavLink className="headerNavigation__navigation__links" to="/">
+          <a
+            className="headerNavigation__navigation__links"
+            href="https://discord.com/oauth2/authorize?client_id=978936791547674645&scope=bot"
+          >
             {t("common.discordBot")}
-          </NavLink>
-          <NavLink className="headerNavigation__navigation__links" to="/create">
-            {t("common.createDrink")}
+          </a>
+          <NavLink
+            className="headerNavigation__navigation__links"
+            to="/library"
+          >
+            {t("common.library")}
           </NavLink>
           <div className="headerNavigation__navigation__settings">
             <button onClick={toggle}>

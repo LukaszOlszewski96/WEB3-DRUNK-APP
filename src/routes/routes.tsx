@@ -2,8 +2,7 @@ import { FC, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { MetaMaskProvider } from "../components/providers/metamask.provider";
 import { ThemeProvider } from "../components/providers/theme.provider";
-import { Coctail, CoctailDetails, Home, NotFound } from "../pages";
-import { CreateCoctail } from "../pages/create-coctail/create-coctail.page";
+import { Coctail, CoctailDetails, Home, Library, NotFound } from "../pages";
 import { DappRoute } from "./dapp.routes";
 
 export const BaseRoute: FC = () => {
@@ -17,7 +16,7 @@ export const BaseRoute: FC = () => {
               <Route path="/coctail" element={<Coctail />} />
               <Route path="/coctail/details" element={<CoctailDetails />} />
               <Route element={<DappRoute />}>
-                <Route path="/create" element={<CreateCoctail />} />
+                <Route path="/library" element={<Library />} />
               </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>

@@ -12,5 +12,7 @@
   "type": "Type",
   "ingredients": "Ingredients:",
   "instruction": "Instruction:",
-  "popupInfo": "Sorry, we don't have the details of this product yet. But rest assured it will be here soon."
+  "popupInfo": "Sorry, we don't have the details of this product yet. But rest assured it will be here soon.",
+  "createYourDrink": "Make your own NFT recipe for the drink of life.",
+  "library": "Library"
 }

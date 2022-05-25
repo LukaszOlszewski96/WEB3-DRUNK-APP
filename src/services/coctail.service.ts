@@ -3,6 +3,7 @@ import { http } from "../config/axios";
 export interface Coctail {
   drinks: [
     {
+      idDrink: any;
       strDrink: any;
       strCategory: any;
       strGlass: any;

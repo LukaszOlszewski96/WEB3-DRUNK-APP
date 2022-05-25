@@ -1,15 +1,16 @@
 import { FC, ReactElement, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { SiEthereum } from "react-icons/si";
+import { AiFillHeart } from "react-icons/ai";
 import { useSearchParams } from "react-router-dom";
-import { Popup } from "../../components/common/popups";
 
+import { Popup } from "../../components/common/popups";
 import { HeaderNavigation } from "../../components/navigation";
 import { Coctail, CoctailData } from "../../services/coctail.service";
 import {
   Ingredient,
   IngredientsData,
 } from "../../services/ingredients.service";
+import { LibraryData } from "../../services/library.service";
 
 import "./coctail-details.page.css";
 
@@ -20,6 +21,7 @@ export const CoctailDetails: FC = () => {
   const [coctailIngredients, setCoctailIngredients] = useState<any[]>();
   const [popup, setPopup] = useState<ReactElement | null>(null);
   const [ingredientsDetails, setIngredientsDetails] = useState<Ingredient>();
+  const [inLibrary, setInLibrary] = useState<boolean>(false);
 
   const [searchParams] = useSearchParams();
   const coctailID = searchParams.get("id");
@@ -27,6 +29,22 @@ export const CoctailDetails: FC = () => {
   const closePopup = () => {
     setPopup(null);
     setIngredientsDetails(undefined);
+  };
+
+  const addCoctailToLib = async () => {
+    setInLibrary((prev) => !prev);
+
+    if (coctail) {
+      await LibraryData.sendCoctailToLib({
+        idDrink: coctail.drinks[0].idDrink,
+        strDrink: coctail.drinks[0].strDrink,
+        strCategory: coctail.drinks[0].strCategory,
+        strGlass: coctail.drinks[0].strGlass,
+        strAlcoholic: coctail.drinks[0].strAlcoholic,
+        strInstructions: coctail.drinks[0].strInstructions,
+        strDrinkThumb: coctail.drinks[0].strDrinkThumb,
+      });
+    }
   };
 
   const getIngredientsDetail = async (name: string) => {
@@ -75,6 +93,7 @@ export const CoctailDetails: FC = () => {
       setCoctail({
         drinks: [
           {
+            idDrink: response.data.drinks[0].idDrink,
             strDrink: response.data.drinks[0].strDrink,
             strCategory: response.data.drinks[0].strCategory,
             strGlass: response.data.drinks[0].strGlass,
@@ -116,7 +135,16 @@ export const CoctailDetails: FC = () => {
           <div className="coctailDetails__container">
             <div className="coctailDetails__containe__image">
               <div className="coctailDetails__containe__header">
-                <SiEthereum />
+                <button
+                  onClick={addCoctailToLib}
+                  className={
+                    inLibrary
+                      ? "coctailDetails__containe__header__button--active"
+                      : "coctailDetails__containe__header__button"
+                  }
+                >
+                  <AiFillHeart />
+                </button>
               </div>
               <img src={coctail.drinks[0].strDrinkThumb} alt="coctail" />
             </div>

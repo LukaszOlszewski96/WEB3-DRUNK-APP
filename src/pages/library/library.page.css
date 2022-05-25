@@ -1,0 +1,24 @@
+.library {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.library__margin {
+  display: flex;
+}
+
+.library__margin__container {
+  width: 100%;
+  min-height: 700px;
+  display: flex;
+  margin-left: 50px;
+  margin-right: 50px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 150px;
+  position: relative;
+  background-color: aqua;
+}
