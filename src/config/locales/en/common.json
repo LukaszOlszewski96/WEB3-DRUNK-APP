@@ -15,5 +15,6 @@
   "popupInfo": "Sorry, we don't have the details of this product yet. But rest assured it will be here soon.",
   "createYourDrink": "Make your own NFT recipe for the drink of life.",
   "library": "Library",
-  "libraryDescription": "Your recipe list:"
+  "libraryDescription": "Your recipe list:",
+  "youMustLogin": "You must log in with your MetaMask wallet"
 }

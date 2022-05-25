@@ -1,13 +1,25 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 
 import "./home.page.css";
 
 import { HeaderNavigation } from "../../components/navigation";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { IMetaMaskContext } from "../../types/metamask.types";
+import { MetaMaskContext } from "../../context/metamask.context";
 
 export const Home: FC = () => {
   const { t } = useTranslation();
+
+  const { contract, connectMetaMask } = useContext(
+    MetaMaskContext
+  ) as IMetaMaskContext;
+
+  const checkAccess = () => {
+    if (!contract) {
+      alert(t("common.youMustLogin"));
+    }
+  };
 
   return (
     <div className="home">
@@ -18,18 +30,24 @@ export const Home: FC = () => {
           <h2>{t("common.homeMainDescription2")}</h2>
 
           <div className="home__mainSection__description__buttons">
-            <button>{t("common.connectWallet")}</button>
+            <button
+              className="headerNavigation__navigation__button"
+              onClick={connectMetaMask}
+            >
+              {t("common.connectWallet")}
+            </button>
             <Link
               className="home__mainSection__description__buttons__link"
-              to="/"
+              to="/library"
+              onClick={checkAccess}
             >
-              {t("common.createDrink")}
+              {t("common.library")}
             </Link>
           </div>
         </div>
         <div className="home__mainSection__image">
           <h1>open</h1>
-          <img src="./neon.png" />
+          <img src="./neon.png" alt="neon" />
         </div>
       </div>
     </div>

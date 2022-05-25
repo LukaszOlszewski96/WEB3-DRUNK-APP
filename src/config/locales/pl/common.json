@@ -15,5 +15,6 @@
   "popupInfo": "Przykro nam, nie mamy jeszcze szczegółów tego produktu. Ale spokojnie wkrótce będzie.",
   "createYourDrink": "Swtórz swój własny NFT przepis na napój życia.",
   "library": "Biblioteka",
-  "libraryDescription": "Twoja lista przepisów:"
+  "libraryDescription": "Twoja lista przepisów:",
+  "youMustLogin": "Musisz się zalogować portfelem MetaMask"
 }

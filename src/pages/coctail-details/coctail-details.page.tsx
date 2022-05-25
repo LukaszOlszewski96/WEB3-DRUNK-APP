@@ -35,9 +35,13 @@ export const CoctailDetails: FC = () => {
   };
 
   const addCoctailToLib = async () => {
-    setInLibrary((prev) => !prev);
+    if (!contract) {
+      alert(t("common.youMustLogin"));
+    }
 
     if (coctail && contract) {
+      setInLibrary((prev) => !prev);
+
       try {
         await LibraryData.sendCoctailToLib(
           {

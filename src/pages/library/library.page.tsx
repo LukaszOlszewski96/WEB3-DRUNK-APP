@@ -33,8 +33,6 @@ export const Library: FC = () => {
     getLibraryData();
   }, []);
 
-  console.log(coctails);
-
   return (
     <div className="library">
       <HeaderNavigation />

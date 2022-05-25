@@ -29,6 +29,12 @@ export const HeaderNavigation: FC = () => {
     console.log(language);
   };
 
+  const checkAccess = () => {
+    if (!contract) {
+      alert(t("common.youMustLogin"));
+    }
+  };
+
   return (
     <div className="headerNavigation">
       <div className="headerNavigation__header">
@@ -53,6 +59,7 @@ export const HeaderNavigation: FC = () => {
           <NavLink
             className="headerNavigation__navigation__links"
             to="/library"
+            onClick={checkAccess}
           >
             {t("common.library")}
           </NavLink>
