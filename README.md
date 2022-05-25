@@ -8,3 +8,4 @@
 ![image](https://user-images.githubusercontent.com/57043892/170369973-c8c8b452-300e-4a9a-b796-5ad4ad253e48.png) 
 
 
+You can test the application by going to the link: https://testdevdb-d34df.web.app/coctail
