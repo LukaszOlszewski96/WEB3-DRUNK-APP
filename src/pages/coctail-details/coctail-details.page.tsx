@@ -1,20 +1,23 @@
-import { FC, ReactElement, useEffect, useState } from "react";
+import { FC, ReactElement, useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { AiFillHeart } from "react-icons/ai";
 import { useSearchParams } from "react-router-dom";
 
 import { Popup } from "../../components/common/popups";
 import { HeaderNavigation } from "../../components/navigation";
+import { MetaMaskContext } from "../../context/metamask.context";
 import { Coctail, CoctailData } from "../../services/coctail.service";
 import {
   Ingredient,
   IngredientsData,
 } from "../../services/ingredients.service";
 import { LibraryData } from "../../services/library.service";
+import { IMetaMaskContext } from "../../types/metamask.types";
 
 import "./coctail-details.page.css";
 
 export const CoctailDetails: FC = () => {
+  const { contract } = useContext(MetaMaskContext) as IMetaMaskContext;
   const { t } = useTranslation();
 
   const [coctail, setCoctail] = useState<Coctail>();
@@ -34,16 +37,23 @@ export const CoctailDetails: FC = () => {
   const addCoctailToLib = async () => {
     setInLibrary((prev) => !prev);
 
-    if (coctail) {
-      await LibraryData.sendCoctailToLib({
-        idDrink: coctail.drinks[0].idDrink,
-        strDrink: coctail.drinks[0].strDrink,
-        strCategory: coctail.drinks[0].strCategory,
-        strGlass: coctail.drinks[0].strGlass,
-        strAlcoholic: coctail.drinks[0].strAlcoholic,
-        strInstructions: coctail.drinks[0].strInstructions,
-        strDrinkThumb: coctail.drinks[0].strDrinkThumb,
-      });
+    if (coctail && contract) {
+      try {
+        await LibraryData.sendCoctailToLib(
+          {
+            idDrink: coctail.drinks[0].idDrink,
+            strDrink: coctail.drinks[0].strDrink,
+            strCategory: coctail.drinks[0].strCategory,
+            strGlass: coctail.drinks[0].strGlass,
+            strAlcoholic: coctail.drinks[0].strAlcoholic,
+            strInstructions: coctail.drinks[0].strInstructions,
+            strDrinkThumb: coctail.drinks[0].strDrinkThumb,
+          },
+          contract
+        );
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 
