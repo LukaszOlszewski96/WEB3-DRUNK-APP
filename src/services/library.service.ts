@@ -5,7 +5,7 @@ import { IFirebaseLib } from "../types/global.types";
 export class LibraryData {
   static sendCoctailToLib = (data: IFirebaseLib | null, userContract: any) => {
     const docRef = doc(firestore, "Library", `${userContract}`);
-    const collRef = collection(docRef, `${data?.idDrink}`);
+    const collRef = collection(docRef, "Coctails");
     return addDoc(collRef, {
       idDrink: data?.idDrink,
       strDrink: data?.strDrink,
@@ -16,8 +16,13 @@ export class LibraryData {
     });
   };
 
-  static getLibCoctails = () => {
-    const collectionRef = collection(firestore, "Library");
+  static getLibCoctails = (userContract: any) => {
+    const collectionRef = collection(
+      firestore,
+      "Library",
+      `${userContract}`,
+      "Coctails"
+    );
     return getDocs(collectionRef);
   };
 }
